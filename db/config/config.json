@@ -1,0 +1,25 @@
+{
+  "development": {
+    "username": "root",
+    "password": "root",
+    "database": "funny_test",
+    "host": "127.0.0.1",
+    "port": "8889",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": "123456",
+    "database": "funny_test2",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": "123456",
+    "database": "funny_test",
+    "host": "47.106.69.35",
+    "port": "3307",
+    "dialect": "mysql"
+  }
+}
