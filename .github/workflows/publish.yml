@@ -1,0 +1,12 @@
+ecs-pull:
+  runs-on: ubuntu-latest
+  steps:
+    - name: docker to publish
+      uses: fifsky/ssh-action@master
+      with:
+        user: root
+        host: '${{ secrets.ECS_HOST }}'
+        key: ${{ secrets.ECS_PRIVATE_KEY }}
+        command: |
+          cd /
+          docker login --username=${{ secrets.ACR_USERNAME }} --password=${{ secrets.ACR_PASSWORD }} <ACR 公网路径>
