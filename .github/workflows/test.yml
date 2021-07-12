@@ -32,10 +32,4 @@ jobs:
           context: .
           file: ./test.Dockerfile
           push: true
-          tags: registry.cn-shenzhen.aliyuncs.com/jsdawn/funny-express:v3
-      # 使用Aliyun操作指南提供的命令
-      # - name: Push to Ali Docker Repository
-      #   run: |
-      #     docker login -u ${{ secrets.ALI_DOCKER_HUB_USN }} -p ${{ secrets.ALI_DOCKER_HUB_PWD }} ${{ secrets.ALI_DOCKER_HUB_REGISTRY }}
-      #     docker build -t registry.cn-shenzhen.aliyuncs.com/jsdawn/funny-express:v1 .
-      #     docker push registry.cn-shenzhen.aliyuncs.com/jsdawn/funny-express:v1
+          tags: registry.cn-shenzhen.aliyuncs.com/jsdawn/funny-express:testv1
