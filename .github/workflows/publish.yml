@@ -1,4 +1,5 @@
 ecs-pull:
+  on: push
   runs-on: ubuntu-latest
   steps:
     - name: docker to publish
@@ -8,5 +9,7 @@ ecs-pull:
         host: '${{ secrets.ECS_HOST }}'
         key: ${{ secrets.ECS_PRIVATE_KEY }}
         command: |
-          cd /
-          docker login --username=${{ secrets.ACR_USERNAME }} --password=${{ secrets.ACR_PASSWORD }} <ACR 公网路径>
+          cd /home
+          git clone https://github.com/jsdawn/funny-express.git
+          cd funny-express
+          docker-compose up -d

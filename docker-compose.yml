@@ -1,8 +1,8 @@
 version: '3'
 services:
   funny-app:
-    container_name: 'funny-app'
+    container_name: 'funny-express'
     build: .
-    image: 'funny-node:2.0'
+    image: 'funny-express:1.0'
     ports:
-      - '3000:3000'
+      - '3008:3008'
