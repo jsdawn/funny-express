@@ -1,15 +1,20 @@
-ecs-pull:
-  on: [push]
-  runs-on: ubuntu-latest
-  steps:
-    - name: docker to publish
-      uses: fifsky/ssh-action@master
-      with:
-        user: root
-        host: ${{ secrets.ECS_HOST }}
-        key: ${{ secrets.ECS_PRIVATE_KEY }}
-        command: |
-          cd /home
-          git clone https://github.com/jsdawn/funny-express.git
-          cd funny-express
-          docker-compose up -d
+name: ecs-pull
+
+on: [push]
+
+jobs:
+  publick-ecs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: docker to publish
+        uses: fifsky/ssh-action@master
+        with:
+          user: root
+          host: ${{ secrets.ECS_HOST }}
+          key: ${{ secrets.ECS_PRIVATE_KEY }}
+          command: |
+            cd /home
+            git clone https://github.com/jsdawn/funny-express.git
+            cd funny-express
+            docker-compose up -d
