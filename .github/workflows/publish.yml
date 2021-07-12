@@ -26,7 +26,6 @@ jobs:
         id: docker_build
         uses: docker/build-push-action@v2
         with:
-          context: .
           push: true
           tags: registry.cn-shenzhen.aliyuncs.com/jsdawn/funny-express:v3
       # 使用Aliyun操作指南提供的命令
