@@ -1,8 +1,5 @@
 ecs-pull:
-  on:
-    push:
-      branches: [master]
-
+  on: [push]
   runs-on: ubuntu-latest
   steps:
     - name: docker to publish
