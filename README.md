@@ -65,6 +65,11 @@
 1. Dockerfile
 2. docker-compose
 
+OR 
+
+1. Dockerfile
+2. git actions
+
 # 延伸
 
 Kubernates
