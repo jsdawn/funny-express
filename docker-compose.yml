@@ -5,4 +5,4 @@ services:
     build: .
     image: 'funny-express:1.0'
     ports:
-      - '3008:3008'
+      - '3000:3000'
