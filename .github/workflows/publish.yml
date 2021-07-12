@@ -1,20 +1,21 @@
-name: ecs-pull
-
-on: [push]
+name: Docker Image CI
+# 触发条件：当master branch触发push（push，merge Pull Request）时，弱docker文件夹下的文件有更新，则触发。
+on:
+  push:
+    branches:
+      - master
 
 jobs:
-  publick-ecs:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: docker to publish
-        uses: fifsky/ssh-action@master
-        with:
-          user: root
-          host: ${{ secrets.ECS_HOST }}
-          key: ${{ secrets.ECS_PRIVATE_KEY }}
-          command: |
-            cd /home
-            git clone https://github.com/jsdawn/funny-express.git
-            cd funny-express
-            docker-compose up -d
+      - name: Checkout Dockerfile
+        uses: actions/checkout@v2
+
+      # 使用Aliyun操作指南提供的命令
+      - name: Push to Ali Docker Repository
+        run: |
+          docker login -u ${{ secrets.ALI_DOCKER_HUB_USN }} -p ${{ secrets.ALI_DOCKER_HUB_PWD }} ${{ secrets.ALI_DOCKER_HUB_REGISTRY }}
+          docker build -t registry.cn-shenzhen.aliyuncs.com/jsdawn/funny-express:v1 .
+          docker push registry.cn-shenzhen.aliyuncs.com/jsdawn/funny-express:v1
